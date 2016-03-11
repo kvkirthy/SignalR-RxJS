@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/jquery-1.6.4.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>    
+    <script src="Scripts/rx.lite.min.js"></script>
+    <script src="Scripts/rx.angular.min.js"></script>
+    <script src="App/app.js"></script>
+</head>
+<body ng-app="recordManagerModule" style="padding: 15px">
+
+    <div ng-controller="node1Controller">
+        <h2>Node 1 Messages:</h2>
+        <div ng-repeat="message in messages track by $index">
+            <strong>{{message.message}}</strong>
+        </div>
+    </div>
+
+
+    <div ng-controller="node2Controller">
+        <h2>Node 2 Messages:</h2>
+        <div ng-repeat="message in messages track by $index">
+            <strong>{{message.message}}</strong>
+        </div>
+    </div>
+    
+    <div ng-controller="recordFormController">
+        <h2>Simulate creating a new record</h2>
+        <input type="text" ng-model="message" />
+        <br/>
+        <input type="checkbox" ng-model="node1"> &nbsp; Node1
+        <br />
+        <input type="checkbox" ng-model="node2"> &nbsp; Node2
+        <br />      
+        <button ng-click="add()">Create Record</button>
+
+    </div>
+</body>
+</html>
